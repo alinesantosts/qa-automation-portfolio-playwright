@@ -1,0 +1,34 @@
+{
+  "name": "qa-automation-portfolio-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:e2e": "npx playwright test tests/",
+    "test:e2e:all": "npx playwright test tests --project=all-browsers-and-tests",
+    "test:e2e:ci": "CI=1 npx playwright test --project=ci --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL",
+    "test:e2e:dev": "npx playwright test tests-examples/ --project=chromium --headed --retries=0 --reporter=line",
+    "test:e2e:smoke": "npx playwright test tests-examples/ --grep @smoke --project=chromium",
+    "test:e2e:non-smoke": "npx playwright test tests-examples/ --grep-invert @smoke --project=firefox",
+    "test:visual:acme": "npx playwright test example-applitools.spec.ts --project=chromium",
+    "test:visual:playwright": "npx playwright test example3.spec.ts --project=all-browsers-and-tests",
+    "test:report": "npx playwright show-report",
+    "test:e2e:mobile-chrome": "npx playwright test tests --project='Mobile Chrome'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alinesantosts/qa-automation-portfolio-playwright.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alinesantosts/qa-automation-portfolio-playwright/issues"
+  },
+  "homepage": "https://github.com/alinesantosts/qa-automation-portfolio-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^24.2.0"
+  }
+}
